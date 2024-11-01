@@ -2,7 +2,8 @@ const add = (nums) => {
   if (nums === "") return 0;
   if (nums.length === 1) return parseInt(nums[0]);
 
-  return 0;
+  const numbers = nums.split(",").map(Number);
+  return numbers.reduce((sum, num) => sum + num, 0);
 };
 
 const runTest = () => {
@@ -14,6 +15,11 @@ const runTest = () => {
   //   Test 2: Single number returns the number itself
   if (add("1") !== 1) {
     console.log("Test 2 Failed: Expected 1 for input '1'");
+  }
+
+  // Test 3 Failed: Two numbers, comma-separated
+  if (add("1,2") !== 3) {
+    console.log("Test 3 Failed: Two numbers, comma-separated");
   }
 };
 
